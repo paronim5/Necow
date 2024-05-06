@@ -1,11 +1,13 @@
-public class BallAndPlatform {
+import java.awt.*;
+
+public class Ball {
     private int x;
     private int y;
     private int diameter;
     private int speedX;
     private int speedY;
 
-    public BallAndPlatform(int x, int y, int diameter, int speedX, int speedY) {
+    public Ball(int x, int y, int diameter, int speedX, int speedY) {
         this.x = x;
         this.y = y;
         this.diameter = diameter;
@@ -62,6 +64,22 @@ public class BallAndPlatform {
     }
     public void reverseY(){
         speedY = -speedY;
+    }
+public void draw(Graphics g){
+        g.setColor(Color.red);
+        g.fillOval(x,y,diameter,diameter);
+}
+public Rectangle hitBox(){
+        return new Rectangle(x,y,diameter,diameter);
+}
+public boolean intersects(Block block) {
+        // Метод для проверки пересечения мяча с блоком
+        return hitBox().intersects(block.hitBox());
+    }
+
+    public boolean intersects(Paddle paddle) {
+        // Метод для проверки пересечения мяча с платформой
+        return hitBox().intersects(paddle.hitBox());
     }
 
 }
