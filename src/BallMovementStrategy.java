@@ -1,6 +1,7 @@
 import java.util.List;
 
 public class BallMovementStrategy implements MovementStrategy {
+    public GamePanel gm;
     @Override
     public void move(Ball ball) {
 
@@ -21,8 +22,7 @@ public class BallMovementStrategy implements MovementStrategy {
             ball.reverseY(); // reflect from top
         }
 
-        // Проверка столкновения мяча с блоками
-        List<Block> blocks = ball..getBlocks(); //we should get block from game panel dont work
+      List<Block> blocks = gm.getBricks(); //we should get block from game panel dont work
         for (Block block : blocks) {
             if (CollisionDetector.checkCollision(ball, block)) {
                 // delite block + change ball direction

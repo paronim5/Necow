@@ -1,5 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.RectangularShape;
+import java.util.List;
 
 public class GamePanel extends JFrame {
     public static final int WIDTH = 1200;
@@ -39,8 +43,8 @@ public class GamePanel extends JFrame {
         this.paddle = paddle;
     }
 
-    public Block[] getBricks() {
-        return bricks;
+    public List<Block> getBricks() {
+        return List.of(bricks);
     }
 
     public void setBricks(Block[] bricks) {
@@ -53,5 +57,28 @@ public class GamePanel extends JFrame {
         for (Block brick : bricks) {
             brick.draw(g2);
         }
+    }
+    private static void createGameField(){
+        JFrame frame = new JFrame("Game Field");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+    }
+    private static void createGameMenu(){
+        JFrame frame = new JFrame("menu");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setShape(new Rectangle(600,1200));
+        JPanel controlPanel  = new JPanel();
+        JButton startButton = new JButton();
+        JButton exitButton = new JButton();
+        JButton LeaderBordButton = new JButton();
+frame.setVisible(true);
+        startButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                createGameField();
+            }
+        });
+
+
     }
 }
