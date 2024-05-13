@@ -13,8 +13,8 @@ public class CollisionDetector {
         Rectangle blockRect = block.hitBox();
         return ballRect.intersects(blockRect);
     }
-
-    public static boolean checkCollisionWithWalls(Ball ball, int screenWidth, int screenHeight) {
+//may be we dont need this code
+/*    public static boolean checkCollisionWithWalls(Ball ball, int screenWidth, int screenHeight) {
         Rectangle ballRect = ball.hitBox();
         // check collision with right and left wall
         if (ballRect.intersectsLine(0, 0, 0, screenHeight) || ballRect.intersectsLine(screenWidth, 0, screenWidth, screenHeight)) {
@@ -31,5 +31,5 @@ public class CollisionDetector {
         return false;
     }
 
-
+*/
 }

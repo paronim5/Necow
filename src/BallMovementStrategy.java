@@ -35,7 +35,5 @@ public class BallMovementStrategy implements MovementStrategy {
     }
 
     @Override
-    public void moveP(Paddle paddle) {
-
-    }
+    public void moveP(Paddle paddle) {}
 }
